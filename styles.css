@@ -338,6 +338,17 @@ header p {
     border-color: #dc3545;
 }
 
+/* Pulse animation for new scenarios */
+.serving-position.highlight {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
 /* Court labels */
 .court-label {
     position: absolute;

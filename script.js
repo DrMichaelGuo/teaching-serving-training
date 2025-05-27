@@ -101,8 +101,14 @@ class TennisServingGame {
             playerScore: finalPlayerScore,
             opponentScore: finalOpponentScore
         };
-        
         this.updateDisplay();
+        // Highlight correct position
+        const correctPos = this.getCorrectPosition();
+        const posElem = document.querySelector(`.serving-position[data-position="${correctPos}"]`);
+        if (posElem) {
+            posElem.classList.add('highlight');
+            setTimeout(() => posElem.classList.remove('highlight'), 2000);
+        }
     }
     
     updateDisplay() {

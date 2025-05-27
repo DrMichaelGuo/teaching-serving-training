@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Serving Training Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎾 Tennis Serving Position Training</h1>
+            <p>Learn where to stand when serving based on the score!</p>
+        </header>
+
+        <div class="game-area">
+            <div class="score-display">
+                <div class="score-section">
+                    <h3>Current Score</h3>
+                    <div class="score-info">
+                        <span id="current-score">0-0</span>
+                        <span id="serving-player">You are serving</span>
+                        <span id="game-info">First serve</span>
+                    </div>
+                </div>
+                <div class="stats-section">
+                    <div class="stat">
+                        <span class="stat-label">Correct:</span>
+                        <span id="correct-count">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Total:</span>
+                        <span id="total-count">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Accuracy:</span>
+                        <span id="accuracy">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="court-container">
+                <div class="instructions">
+                    <h3>Where should you stand?</h3>
+                    <p>Click on the correct position on the baseline to serve from based on the score.</p>
+                </div>
+                
+                <div class="tennis-court">
+                    <!-- Half Court markings -->
+                    <div class="court-line baseline"></div>
+                    <div class="court-line service-line"></div>
+                    <div class="court-line center-line"></div>
+                    <div class="court-line sideline-left"></div>
+                    <div class="court-line sideline-right"></div>
+                    
+                    <!-- Service positions -->
+                    <div class="serving-position left-position" data-position="left">
+                        <span class="position-label">Ad Side<br>Position</span>
+                    </div>
+                    <div class="serving-position right-position" data-position="right">
+                        <span class="position-label">Deuce Side<br>Position</span>
+                    </div>
+                    
+                    <!-- Net visualization -->
+                    <div class="net-top"></div>
+                    
+                    <!-- Court labels -->
+                    <div class="court-label deuce-label">Deuce<br>Court</div>
+                    <div class="court-label ad-label">Ad<br>Court</div>
+                </div>
+            </div>
+
+            <div class="feedback" id="feedback">
+                <p>Click on a serving position to start!</p>
+            </div>
+
+            <div class="controls">
+                <button id="new-scenario" class="btn btn-primary">New Scenario</button>
+                <button id="reset-stats" class="btn btn-secondary">Reset Stats</button>
+                <button id="show-rules" class="btn btn-info">Show Rules</button>
+            </div>
+        </div>
+
+        <div class="rules-modal" id="rules-modal">
+            <div class="modal-content">
+                <span class="close" id="close-modal">&times;</span>
+                <h2>Tennis Serving Position Rules</h2>
+                <div class="rules-content">
+                    <h3>Basic Position Rules:</h3>
+                    <ul>
+                        <li><strong>Deuce Side Position:</strong> Stand on the right side of the center mark when the total points are even (0, 2, 4, etc.)</li>
+                        <li><strong>Ad Side Position:</strong> Stand on the left side of the center mark when the total points are odd (1, 3, 5, etc.)</li>
+                        <li><strong>Always Diagonal:</strong> From either position, you'll always serve diagonally across the court</li>
+                    </ul>
+                    
+                    <h3>Score Examples:</h3>
+                    <ul>
+                        <li>0-0, 15-15, 30-30: Stand on the deuce side (right side)</li>
+                        <li>15-0, 0-15, 30-15: Stand on the ad side (left side)</li>
+                        <li>40-40 (deuce): Stand on the deuce side (right side)</li>
+                        <li>Advantage: Stand on the ad side (left side)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

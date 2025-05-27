@@ -173,12 +173,16 @@ class TennisServingGame {
         this.clearServingPositionStates();
         
         if (isCorrect) {
+            // Play correct sound
+            document.getElementById('correct-sound').play();
             event.currentTarget.classList.add('correct');
             this.elements.feedback.className = 'feedback correct';
             this.elements.feedback.innerHTML = '<p>✅ Correct! That\'s the right place to stand.</p>';
         } else {
+            // Play wrong sound
+            document.getElementById('wrong-sound').play();
             event.currentTarget.classList.add('incorrect');
-            const correctElem = document.querySelector(`.serving-position[data-position="${correctPosition}"]`);
+            const correctElem = document.querySelector(`.serving-position[data-position=\"${correctPosition}\"]`);
             if (correctElem) correctElem.classList.add('correct');
             this.elements.feedback.className = 'feedback incorrect';
             this.elements.feedback.innerHTML = `<p>❌ Not quite! You should stand on the <strong>${correctPosition === 'right' ? 'deuce (right)' : 'ad (left)'}</strong> side.</p>`;

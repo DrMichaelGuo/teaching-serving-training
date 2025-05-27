@@ -103,6 +103,30 @@ class TennisServingGame {
         };
         
         this.updateDisplay();
+        
+        // Highlight correct position
+        const posElem = document.querySelector(`.serving-position[data-position="${this.getCorrectPosition()}"]`);
+        if (posElem) {
+            // Pulse highlight
+            posElem.classList.add('highlight');
+            setTimeout(() => posElem.classList.remove('highlight'), 2000);
+            // Show bouncing ball at correct position
+            const court = document.querySelector('.tennis-court');
+            const ball = document.getElementById('ball');
+            const containerHeight = court.clientHeight;
+            const posRect = posElem.getBoundingClientRect();
+            const courtRect = court.getBoundingClientRect();
+            const left = posRect.left - courtRect.left + posRect.width / 2 - 10; // 10px ball radius
+            const bottom = (courtRect.bottom - posRect.bottom) + 'px';
+            ball.style.left = left + 'px';
+            ball.style.bottom = bottom;
+            ball.style.display = 'block';
+            ball.classList.add('bounce');
+            setTimeout(() => {
+                ball.style.display = 'none';
+                ball.classList.remove('bounce');
+            }, 2000);
+        }
     }
     
     updateDisplay() {

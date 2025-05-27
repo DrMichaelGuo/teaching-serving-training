@@ -338,6 +338,24 @@ header p {
     border-color: #dc3545;
 }
 
+/* Ball indicator */
+.ball {
+    position: absolute;
+    bottom: 5%;
+    width: 20px;
+    height: 20px;
+    background: yellow;
+    border-radius: 50%;
+    display: none;
+    animation: bounce 1s ease-in-out;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
 /* Court labels */
 .court-label {
     position: absolute;
